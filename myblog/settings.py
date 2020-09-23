@@ -109,6 +109,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# E-Mail
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
