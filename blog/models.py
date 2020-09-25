@@ -3,6 +3,9 @@ from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
 
+from taggit.managers import TaggableManager
+
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status='published')
@@ -23,6 +26,7 @@ class Post(models.Model):
     status = models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
     objects = models.Manager()      # Our default manager
     published = PublishedManager()  # Our new objects manager.
+    tags = TaggableManager()
 
     def get_absolute_url(self):
         return reverse('blog:post_detail', args=[self.publish.year,
